@@ -1,8 +1,49 @@
 {
+	"$schema": "http://json-schema.org/draft-07/schema",
 	"Title": "Argument Specification Schema",
 	"type": "object",
 	"properties": {
+		"$schema": {
+			"type": "string"
+		},
 		"program": {
+			"type": "string"
+		},
+		"description": {
+			"type": "string"
+		},
+		"licence": {
+			"type": "string"
+		},
+		"version": {
+			"type": "string"
+		},
+		"date": {
+			"type": "string"
+		},
+		"seeAlso": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"manLocation": {
+						"type": "integer"
+					}
+				},
+				"required": [
+					"name",
+					"manLocation"
+				],
+				"additionalProperties": false
+			}
+		},
+		"bugs": {
+			"type": "string"
+		},
+		"about": {
 			"type": "string"
 		},
 		"args": {
@@ -31,23 +72,34 @@
 					"default": {
 						"type": "string"
 					},
+					"choices": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						}
+					},
 					"mandatory": {
 						"type": "boolean"
+					},
+					"help": {
+						"type": "string"
 					}
 				},
 				"required": [
+					"mandatory",
 					"short",
-					"long",
 					"dest",
-					"type",
 					"default"
-				]
+				],
+				"additionalProperties": false
 			},
-			"uniqueItems": true
+			"uniqueItems": true,
+			"additionalProperties": false
 		}
 	},
 	"required": [
 		"program",
 		"args"
-	]
+	],
+	"additionalProperties": false
 }
