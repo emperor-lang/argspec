@@ -1,25 +1,32 @@
 {
 	"$schema": "http://json-schema.org/draft-07/schema",
-	"Title": "Argument Specification Schema",
+	"title": "Argument Specification Schema",
 	"type": "object",
 	"properties": {
 		"$schema": {
-			"type": "string"
+			"type": "string",
+			"description": "The schema followed by the JSON file"
 		},
 		"program": {
-			"type": "string"
+			"type": "string",
+			"description": "The name of the program"
 		},
 		"description": {
-			"type": "string"
+			"type": "string",
+			"description": "A brief description of the program"
 		},
 		"licence": {
-			"type": "string"
+			"type": "string",
+			"description": "The license text of the program. SIMPLY NAMING THE LICENSE IS NOT ENOUGH HERE"
 		},
 		"version": {
-			"type": "string"
+			"type": "string",
+			"pattern": "\\d+\\.\\d+\\.\\d+",
+			"description": "The current version of the program"
 		},
 		"date": {
-			"type": "string"
+			"type": "string",
+			"description": "The date when the program was most recently changed"
 		},
 		"seeAlso": {
 			"type": "array",
@@ -27,10 +34,12 @@
 				"type": "object",
 				"properties": {
 					"name": {
-						"type": "string"
+						"type": "string",
+						"description": "Program or library function name"
 					},
 					"manLocation": {
-						"type": "integer"
+						"type": "integer",
+						"description": "man section"
 					}
 				},
 				"required": [
@@ -38,13 +47,16 @@
 					"manLocation"
 				],
 				"additionalProperties": false
-			}
+			},
+			"description": "A list of references the reader of a man page may find useful"
 		},
 		"bugs": {
-			"type": "string"
+			"type": "string",
+			"description": "A list of known bugs and how to report them"
 		},
 		"about": {
-			"type": "string"
+			"type": "string",
+			"description": "Miscellaneous information about the program or author"
 		},
 		"args": {
 			"type": "array",
@@ -52,13 +64,16 @@
 				"type": "object",
 				"properties": {
 					"short": {
-						"type": "string"
+						"type": "string",
+						"description": "Concise variant of the argument (eg. -v)"
 					},
 					"long": {
-						"type": "string"
+						"type": "string",
+						"description": "Verbose variant of the argument (eg. --verbose)"
 					},
 					"dest": {
-						"type": "string"
+						"type": "string",
+						"description": "Internal destination of the value"
 					},
 					"type": {
 						"type": "string",
@@ -67,22 +82,27 @@
 							"char",
 							"int",
 							"flag"
-						]
+						],
+						"description": "The type of the value"
 					},
 					"default": {
-						"type": "string"
+						"type": "string",
+						"description": "If left unspecified, the value taken by the argument"
 					},
 					"choices": {
 						"type": "array",
 						"items": {
 							"type": "string"
-						}
+						},
+						"description": "A set of values which may be taken by the argument. If omitted, values are unbounded"
 					},
 					"mandatory": {
-						"type": "boolean"
+						"type": "boolean",
+						"description": "Indicates whether a omitting this argument would invalidate a call to the program"
 					},
 					"help": {
-						"type": "string"
+						"type": "string",
+						"description": "A short description of the argument"
 					}
 				},
 				"required": [
@@ -94,12 +114,14 @@
 				"additionalProperties": false
 			},
 			"uniqueItems": true,
-			"additionalProperties": false
+			"additionalProperties": false,
+			"description": "List of the arguments accepted by the program"
 		}
 	},
 	"required": [
 		"program",
 		"args"
 	],
-	"additionalProperties": false
+	"additionalProperties": false,
+	"description": "A schema for generating argument-parsers and documentation for arbitrary programs"
 }
