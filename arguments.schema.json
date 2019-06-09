@@ -1,0 +1,53 @@
+{
+	"Title": "Argument Specification Schema",
+	"type": "object",
+	"properties": {
+		"program": {
+			"type": "string"
+		},
+		"args": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"short": {
+						"type": "string"
+					},
+					"long": {
+						"type": "string"
+					},
+					"dest": {
+						"type": "string"
+					},
+					"type": {
+						"type": "string",
+						"enum": [
+							"string",
+							"char",
+							"int",
+							"flag"
+						]
+					},
+					"default": {
+						"type": "string"
+					},
+					"mandatory": {
+						"type": "boolean"
+					}
+				},
+				"required": [
+					"short",
+					"long",
+					"dest",
+					"type",
+					"default"
+				]
+			},
+			"uniqueItems": true
+		}
+	},
+	"required": [
+		"program",
+		"args"
+	]
+}
