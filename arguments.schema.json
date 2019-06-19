@@ -144,17 +144,16 @@
 								"description": "The type of output expected"
 							},
 							"expected": {
-								"if": {
-									"type": "string"
-								},
-								"then": {},
-								"else": {
-									"pattern": "(\\d+(\\.\\d+)?\\s?(<=|<)\\s?\\$\\s?(<=|<)\\s?\\d(\\.\\d+)?|\\d+(\\.\\d+)?)"
-								},
+								"type": "string",
+								"description": "The expected output from the specified input"
+							},
+							"validRange": {
+								"type": "string",
+								"pattern": "(\\d+(\\.\\d+)?\\s?(<=|<)\\s?\\$\\s?(<=|<)\\s?\\d(\\.\\d+)?|\\d+(\\.\\d+)?)",
 								"description": "The value or range which is expected"
 							}
 						},
-						"description": "The expected output from the specified input"
+						"description": "The output of the example"
 					}
 				},
 				"required": [
