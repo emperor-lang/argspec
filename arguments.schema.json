@@ -117,6 +117,45 @@
 			"uniqueItems": true,
 			"additionalProperties": false,
 			"description": "List of the arguments accepted by the program"
+		},
+		"examples": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"description": {
+						"type": "string",
+						"description": "A brief description of the example case; what the input means and what the output means"
+					},
+					"input": {
+						"type": "string",
+						"description": "An input on the command line"
+					},
+					"output": {
+						"type": "object",
+						"properties": {
+							"type": {
+								"type": "string",
+								"enum": [
+									"string",
+									"int",
+									"real"
+								],
+								"description": "The type of output expected"
+							},
+							"expected": {
+								"type": "string",
+								"description": "The value or range which is expected"
+							}
+						},
+						"description": "The expected output from the specified input"
+					}
+				},
+				"required": [
+					"input",
+					"output"
+				]
+			}
 		}
 	},
 	"required": [
