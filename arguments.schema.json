@@ -81,9 +81,10 @@
 							"string",
 							"char",
 							"int",
-							"flag"
+							"flag",
+							"help"
 						],
-						"description": "The type of the value"
+						"description": "The type of the value or 'help' to output a help message and exit"
 					},
 					"default": {
 						"type": "string",
