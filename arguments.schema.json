@@ -144,7 +144,13 @@
 								"description": "The type of output expected"
 							},
 							"expected": {
-								"type": "string",
+								"if": {
+									"type": "string"
+								},
+								"then": {},
+								"else": {
+									"pattern": "(\\d+(\\.\\d+)?\\s?(<=|<)\\s?\\$\\s?(<=|<)\\s?\\d(\\.\\d+)?|\\d+(\\.\\d+)?)"
+								},
 								"description": "The value or range which is expected"
 							}
 						},
