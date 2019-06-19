@@ -153,6 +153,10 @@
 								"description": "The value or range which is expected"
 							}
 						},
+						"required": [
+							"type",
+							"expected"
+						],
 						"description": "The output of the example"
 					}
 				},
