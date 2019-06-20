@@ -65,11 +65,13 @@
 				"properties": {
 					"short": {
 						"type": "string",
-						"description": "Concise variant of the argument (eg. -v)"
+						"description": "Concise variant of the argument (eg. -v)",
+						"pattern": "-[^\\s]"
 					},
 					"long": {
 						"type": "string",
-						"description": "Verbose variant of the argument (eg. --verbose)"
+						"description": "Verbose variant of the argument (eg. --verbose)",
+						"pattern": "--[^\\s]+"
 					},
 					"dest": {
 						"type": "string",
