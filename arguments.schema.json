@@ -9,20 +9,24 @@
 		},
 		"program": {
 			"type": "string",
-			"description": "The name of the program"
+			"description": "The name of the program",
+			"default": "no_program_name"
 		},
 		"description": {
 			"type": "string",
-			"description": "A brief description of the program"
+			"description": "A brief description of the program",
+			"default": ""
 		},
 		"licence": {
 			"type": "string",
-			"description": "The license text of the program. SIMPLY NAMING THE LICENSE IS NOT ENOUGH HERE"
+			"description": "The license text of the program. SIMPLY NAMING THE LICENSE IS NOT ENOUGH HERE",
+			"default": ""
 		},
 		"version": {
 			"type": "string",
 			"pattern": "\\d+\\.\\d+\\.\\d+",
-			"description": "The current version of the program"
+			"description": "The current version of the program",
+			"default": "1.0.0"
 		},
 		"date": {
 			"type": "string",
@@ -103,7 +107,8 @@
 					},
 					"help": {
 						"type": "string",
-						"description": "A short description of the argument"
+						"description": "A short description of the argument",
+						"default": ""
 					}
 				},
 				"required": [
