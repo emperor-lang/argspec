@@ -21,7 +21,6 @@
 		},
 		"version": {
 			"type": "string",
-			"pattern": "\\d+\\.\\d+\\.\\d+",
 			"description": "The current version of the program"
 		},
 		"date": {
