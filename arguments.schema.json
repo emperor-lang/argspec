@@ -109,9 +109,12 @@
 				},
 				"required": [
 					"mandatory",
-					"short",
 					"dest",
 					"default"
+				],
+				"anyOf": [
+					{"required": ["short"]},
+					{"required": ["long"]}
 				],
 				"additionalProperties": false
 			},
