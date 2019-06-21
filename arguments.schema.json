@@ -134,28 +134,53 @@
 					"output": {
 						"type": "object",
 						"properties": {
-							"type": {
+							"description": {
 								"type": "string",
-								"enum": [
-									"string",
-									"int",
-									"real"
-								],
-								"description": "The type of output expected"
+								"description": "A brief description of the example"
 							},
-							"expected": {
+							"input": {
 								"type": "string",
-								"description": "The expected output from the specified input"
+								"description": "An example input on the command line"
 							},
-							"validRange": {
-								"type": "string",
-								"pattern": "(\\d+(\\.\\d+)?\\s?(<=|<)\\s?\\$\\s?(<=|<)\\s?\\d(\\.\\d+)?|\\d+(\\.\\d+)?)",
-								"description": "The value or range which is expected"
+							"output": {
+								"type": "object",
+								"description": "The output corresponding to the specified input",
+								"properties": {
+									"type": {
+										"type": "string",
+										"enum": [
+											"string",
+											"number"
+										],
+										"description": "The type of output expected"
+									},
+									"value": {
+										"type": "string",
+										"description": "The expected output corresponding to the given input"
+									},
+									"validRange": {
+										"type": "string",
+										"description": "The range of valid values which may be output when the type is numeric; a dollar symbol indicates the ",
+										"pattern": "(\\d+(\\.\\d)?\\s?(<=|<)\\s?)?\\$(\\s?(<=|<)\\s?\\d+(\\.\\d)?)?"
+									},
+									"validPattern": {
+										"type": "string",
+										"description": "A regular expression (in PCRE) which describes the valid patterns which may be output"
+									},
+									"sideEffects": {
+										"type": "string",
+										"description": "A description of any side-effects which may occur, e.g. changed system time zone"
+									}
+								},
+								"required": [
+									"type",
+									"value"
+								]
 							}
 						},
 						"required": [
-							"type",
-							"expected"
+							"input",
+							"output"
 						],
 						"description": "The output of the example"
 					}
