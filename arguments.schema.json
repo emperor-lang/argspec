@@ -133,56 +133,38 @@
 					},
 					"output": {
 						"type": "object",
+						"description": "The output corresponding to the specified input",
 						"properties": {
-							"description": {
+							"type": {
 								"type": "string",
-								"description": "A brief description of the example"
+								"enum": [
+									"string",
+									"number"
+								],
+								"description": "The type of output expected"
 							},
-							"input": {
+							"value": {
 								"type": "string",
-								"description": "An example input on the command line"
+								"description": "The expected output corresponding to the given input"
 							},
-							"output": {
-								"type": "object",
-								"description": "The output corresponding to the specified input",
-								"properties": {
-									"type": {
-										"type": "string",
-										"enum": [
-											"string",
-											"number"
-										],
-										"description": "The type of output expected"
-									},
-									"value": {
-										"type": "string",
-										"description": "The expected output corresponding to the given input"
-									},
-									"validRange": {
-										"type": "string",
-										"description": "The range of valid values which may be output when the type is numeric; a dollar symbol indicates the ",
-										"pattern": "(\\d+(\\.\\d)?\\s?(<=|<)\\s?)?\\$(\\s?(<=|<)\\s?\\d+(\\.\\d)?)?"
-									},
-									"validPattern": {
-										"type": "string",
-										"description": "A regular expression (in PCRE) which describes the valid patterns which may be output"
-									},
-									"sideEffects": {
-										"type": "string",
-										"description": "A description of any side-effects which may occur, e.g. changed system time zone"
-									}
-								},
-								"required": [
-									"type",
-									"value"
-								]
+							"validRange": {
+								"type": "string",
+								"description": "The range of valid values which may be output when the type is numeric; a dollar symbol indicates the ",
+								"pattern": "(\\d+(\\.\\d)?\\s?(<=|<)\\s?)?\\$(\\s?(<=|<)\\s?\\d+(\\.\\d)?)?"
+							},
+							"validPattern": {
+								"type": "string",
+								"description": "A regular expression (in PCRE) which describes the valid patterns which may be output"
+							},
+							"sideEffects": {
+								"type": "string",
+								"description": "A description of any side-effects which may occur, e.g. changed system time zone"
 							}
 						},
 						"required": [
-							"input",
-							"output"
-						],
-						"description": "The output of the example"
+							"type",
+							"value"
+						]
 					}
 				},
 				"required": [
