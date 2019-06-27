@@ -15,6 +15,10 @@
 			"type": "string",
 			"description": "A brief description of the program"
 		},
+		"longDescription": {
+			"type": "string",
+			"description": "A longer description of the program"
+		},
 		"licence": {
 			"type": "string",
 			"description": "The license text of the program. SIMPLY NAMING THE LICENSE IS NOT ENOUGH HERE"
@@ -71,10 +75,6 @@
 						"type": "string",
 						"description": "Verbose variant of the argument (eg. --verbose)"
 					},
-					"dest": {
-						"type": "string",
-						"description": "Internal destination of the value"
-					},
 					"type": {
 						"type": "string",
 						"enum": [
@@ -108,9 +108,19 @@
 				},
 				"required": [
 					"mandatory",
-					"short",
-					"dest",
-					"default"
+					"help"
+				],
+				"oneOf": [
+					{
+						"required": [
+							"short"
+						]
+					},
+					{
+						"required": [
+							"long"
+						]
+					}
 				],
 				"additionalProperties": false
 			},
@@ -132,44 +142,12 @@
 						"description": "An input on the command line"
 					},
 					"output": {
-						"type": "object",
-						"description": "The output corresponding to the specified input",
-						"properties": {
-							"type": {
-								"type": "string",
-								"enum": [
-									"string",
-									"number"
-								],
-								"description": "The type of output expected"
-							},
-							"value": {
-								"type": "string",
-								"description": "The expected output corresponding to the given input"
-							},
-							"validRange": {
-								"type": "string",
-								"description": "The range of valid values which may be output when the type is numeric; a dollar symbol indicates the ",
-								"pattern": "(\\d+(\\.\\d)?\\s?(<=|<)\\s?)?\\$(\\s?(<=|<)\\s?\\d+(\\.\\d)?)?"
-							},
-							"validPattern": {
-								"type": "string",
-								"description": "A regular expression (in PCRE) which describes the valid patterns which may be output"
-							},
-							"sideEffects": {
-								"type": "string",
-								"description": "A description of any side-effects which may occur, e.g. changed system time zone"
-							}
-						},
-						"required": [
-							"type",
-							"value"
-						]
+						"type": "string",
+						"description": "The output corresponding to the specified input"
 					}
 				},
 				"required": [
-					"input",
-					"output"
+					"input"
 				]
 			}
 		}
@@ -178,6 +156,5 @@
 		"program",
 		"args"
 	],
-	"additionalProperties": false,
-	"description": "A schema for generating argument-parsers and documentation for arbitrary programs"
+	"description": "A schema for generating documentation for arbitrary programs"
 }
