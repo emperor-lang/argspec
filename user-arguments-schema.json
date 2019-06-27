@@ -58,7 +58,7 @@
 			"type": "string",
 			"description": "A list of known bugs and how to report them"
 		},
-		"about": {
+		"author": {
 			"type": "string",
 			"description": "Miscellaneous information about the program or author"
 		},
@@ -127,6 +127,11 @@
 			"uniqueItems": true,
 			"additionalProperties": false,
 			"description": "List of the arguments accepted by the program"
+		},
+		"autoGenerateSynopsis": {
+			"type": "boolean",
+			"default": true,
+			"description": "Specify whether a synopsis should be automatically generated---allows an entirely bespoke _examples_ section to replace the synopsis"
 		},
 		"examples": {
 			"type": "array",
