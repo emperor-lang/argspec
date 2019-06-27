@@ -76,6 +76,5 @@
 		"program",
 		"args"
 	],
-	"additionalProperties": false,
 	"description": "A schema for generating argument-parsers for arbitrary programs"
 }
