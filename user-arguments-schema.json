@@ -110,7 +110,7 @@
 					"mandatory",
 					"help"
 				],
-				"oneOf": [
+				"anyOf": [
 					{
 						"required": [
 							"short"
