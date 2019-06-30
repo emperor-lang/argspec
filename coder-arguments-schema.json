@@ -28,6 +28,10 @@
 						"type": "string",
 						"description": "Internal destination of the value"
 					},
+					"metaDest": {
+						"type": "string",
+						"description": "A user-friendly name for the value, e.g. 'verbosity_level'"
+					},
 					"type": {
 						"type": "string",
 						"enum": [
