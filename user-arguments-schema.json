@@ -99,7 +99,8 @@
 					},
 					"mandatory": {
 						"type": "boolean",
-						"description": "Indicates whether a omitting this argument would invalidate a call to the program"
+						"description": "Indicates whether a omitting this argument would invalidate a call to the program",
+						"default": false
 					},
 					"help": {
 						"type": "string",
@@ -107,7 +108,6 @@
 					}
 				},
 				"required": [
-					"mandatory",
 					"help"
 				],
 				"anyOf": [
