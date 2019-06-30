@@ -15,6 +15,10 @@
 			"type": "string",
 			"description": "A brief description of the program"
 		},
+		"longDescription": {
+			"type": "string",
+			"description": "A longer description of the program"
+		},
 		"licence": {
 			"type": "string",
 			"description": "The license text of the program. SIMPLY NAMING THE LICENSE IS NOT ENOUGH HERE"
@@ -53,7 +57,7 @@
 			"type": "string",
 			"description": "A list of known bugs and how to report them"
 		},
-		"about": {
+		"author": {
 			"type": "string",
 			"description": "Miscellaneous information about the program or author"
 		},
@@ -71,10 +75,6 @@
 						"type": "string",
 						"description": "Verbose variant of the argument (eg. --verbose)",
 						"pattern": "--[^\\s]+"
-					},
-					"dest": {
-						"type": "string",
-						"description": "Internal destination of the value"
 					},
 					"type": {
 						"type": "string",
@@ -100,7 +100,8 @@
 					},
 					"mandatory": {
 						"type": "boolean",
-						"description": "Indicates whether a omitting this argument would invalidate a call to the program"
+						"description": "Indicates whether a omitting this argument would invalidate a call to the program",
+						"default": false
 					},
 					"help": {
 						"type": "string",
@@ -108,25 +109,58 @@
 					}
 				},
 				"required": [
-					"mandatory",
-					"dest",
-					"default"
+					"help"
 				],
 				"anyOf": [
-					{"required": ["short"]},
-					{"required": ["long"]}
+					{
+						"required": [
+							"short"
+						]
+					},
+					{
+						"required": [
+							"long"
+						]
+					}
 				],
-				"additionalProperties": false
+				"additionalProperties": true
 			},
 			"uniqueItems": true,
 			"additionalProperties": false,
 			"description": "List of the arguments accepted by the program"
+		},
+		"autoGenerateSynopsis": {
+			"type": "boolean",
+			"default": true,
+			"description": "Specify whether a synopsis should be automatically generated---allows an entirely bespoke _examples_ section to replace the synopsis"
+		},
+		"examples": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"description": {
+						"type": "string",
+						"description": "A brief description of the example case; what the input means and what the output means"
+					},
+					"input": {
+						"type": "string",
+						"description": "An input on the command line"
+					},
+					"output": {
+						"type": "string",
+						"description": "The output corresponding to the specified input"
+					}
+				},
+				"required": [
+					"input"
+				]
+			}
 		}
 	},
 	"required": [
 		"program",
 		"args"
 	],
-	"additionalProperties": false,
-	"description": "A schema for generating argument-parsers and documentation for arbitrary programs"
+	"description": "A schema for generating documentation for arbitrary programs"
 }

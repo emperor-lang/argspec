@@ -1,0 +1,80 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema",
+	"title": "Argument Specification Schema",
+	"type": "object",
+	"properties": {
+		"$schema": {
+			"type": "string",
+			"description": "The schema followed by the JSON file"
+		},
+		"program": {
+			"type": "string",
+			"description": "The name of the program"
+		},
+		"args": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"short": {
+						"type": "string",
+						"description": "Concise variant of the argument (eg. -v)"
+					},
+					"long": {
+						"type": "string",
+						"description": "Verbose variant of the argument (eg. --verbose)"
+					},
+					"dest": {
+						"type": "string",
+						"description": "Internal destination of the value"
+					},
+					"type": {
+						"type": "string",
+						"enum": [
+							"string",
+							"char",
+							"int",
+							"flag",
+							"help"
+						],
+						"description": "The type of the value or 'help' to output a help message and exit"
+					},
+					"default": {
+						"type": "string",
+						"description": "If left unspecified, the value taken by the argument"
+					},
+					"choices": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						},
+						"description": "A set of values which may be taken by the argument. If omitted, values are unbounded"
+					},
+					"mandatory": {
+						"type": "boolean",
+						"description": "Indicates whether a omitting this argument would invalidate a call to the program",
+						"default": false
+					},
+					"help": {
+						"type": "string",
+						"description": "A short description of the argument"
+					}
+				},
+				"required": [
+					"short",
+					"dest",
+					"default"
+				],
+				"additionalProperties": false
+			},
+			"uniqueItems": true,
+			"additionalProperties": false,
+			"description": "List of the arguments accepted by the program"
+		}
+	},
+	"required": [
+		"program",
+		"args"
+	],
+	"description": "A schema for generating argument-parsers for arbitrary programs"
+}
