@@ -3,10 +3,10 @@
 	"$id": "argspec-v1.0.1-dual",
 	"allOf": [
 		{
-			"$ref": "./coder-arguments-schema.json"
+			"$ref": "https://github.com/argspec/argspec/releases/download/v1.0.1/coder-arguments-schema.json"
 		},
 		{
-			"$ref": "./user-arguments-schema.json"
+			"$ref": "https://github.com/argspec/argspec/releases/download/v1.0.1/user-arguments-schema.json"
 		}
 	]
 }
