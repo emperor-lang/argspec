@@ -1,6 +1,6 @@
 {
 	"$schema": "http://json-schema.org/draft-07/schema",
-	"$id": "argspec-v1.0.1-dual",
+	"$id": "argspec-v1.0.2-dual",
 	"allOf": [
 		{
 			"$ref": "https://github.com/argspec/argspec/releases/download/v1.0.1/coder-arguments-schema.json"
