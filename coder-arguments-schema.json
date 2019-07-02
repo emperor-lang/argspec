@@ -1,6 +1,6 @@
 {
 	"$schema": "http://json-schema.org/draft-07/schema",
-	"$id": "argspec-v1.0.0-coder",
+	"$id": "argspec-v1.1.0-coder",
 	"title": "Argument Specification Schema",
 	"type": "object",
 	"properties": {
@@ -66,9 +66,20 @@
 					}
 				},
 				"required": [
-					"short",
 					"dest",
 					"default"
+				],
+				"anyOf": [
+					{
+						"required": [
+							"short"
+						]
+					},
+					{
+						"required": [
+							"long"
+						]
+					}
 				],
 				"additionalProperties": false
 			},
